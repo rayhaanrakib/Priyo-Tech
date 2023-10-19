@@ -6,8 +6,11 @@ import About from './../components/Main/About';
 import Newsletter from './../components/Main/Newsletter';
 import Discount from './../components/Main/Discount';
 import ScrollToTop from 'react-scroll-to-top';
+import useGetDiscountData from '../components/Custom/useGetDiscountData';
 
 const Home = () => {
+    const [discounts] = useGetDiscountData();
+
     return (
         <div>
             <div data-aos="fade-up" data-aos-duration="1000">
@@ -18,7 +21,7 @@ const Home = () => {
             </div>
             <ScrollToTop className='flex justify-center items-center' smooth />
             <div data-aos="fade-up" data-aos-duration="2000">
-                <Discount></Discount>
+                <Discount discounts={discounts}></Discount>
             </div>
             <div data-aos="fade-up" data-aos-duration="2000">
                 <Products></Products>

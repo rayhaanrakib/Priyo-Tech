@@ -7,7 +7,7 @@ const Footer = () => {
                 className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
             >
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-                    <div className='flex lg:flex-col'>
+                    <div className='flex items-center lg:items-start gap-4 lg:gap-0 lg:flex-col'>
                         <div>
                             <div>
                                 <img src="https://i.ibb.co/tMFSdqn/logo.png" alt="" />
@@ -140,9 +140,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div
-                        className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4"
-                    >
+                    <div className="grid grid-cols-2 gap-8 items-start lg:col-span-2 lg:grid-cols-4">
                         <div>
                             <p className="font-medium text-gray-900">Services</p>
 

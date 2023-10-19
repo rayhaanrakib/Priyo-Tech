@@ -109,8 +109,8 @@ const Navbar = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60">
-                                <li><a>Username</a></li>
-                                <li><a>Logout</a></li>
+                                <li className='text-lg text-center'>Username</li>
+                                <button><a className='text-lg text-center'>Logout</a></button>
                             </ul>
                         </div>
                     </div>
