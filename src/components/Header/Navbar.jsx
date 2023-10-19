@@ -44,6 +44,17 @@ const Navbar = () => {
     const usernav = <>
         <li>
             <NavLink
+                to="/login"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-bold text-[#0078FF]" : ""
+                }
+            >
+                Sign In
+            </NavLink>
+
+        </li>
+        <li>
+            <NavLink
                 to="/add_product"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "font-bold text-[#0078FF]" : ""
@@ -68,7 +79,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className='bg-[#002b44] text-white'>
+            <div className='bg-[#002b44] hidden md:block text-white'>
                 <div className='container mx-auto flex justify-items-center items-center py-1 px-4 lg:px-0'>
                     <h2 className='w-full text-start text-xs md:text-sm lg:text-base'>Need help? <br className='md:hidden' /> Call us: 1-800-123-4567</h2>
                     <h2 className='w-full text-center text-xs md:text-sm lg:text-base'>Summer sale discount off 50% off! Shop Now</h2>
@@ -87,7 +98,7 @@ const Navbar = () => {
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 font-semibold shadow bg-base-100 rounded-box w-52">
                                 {navlinks}
                                 {usernav}
                             </ul>
