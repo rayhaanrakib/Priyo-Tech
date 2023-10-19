@@ -9,7 +9,9 @@ import Discount from './../components/Main/Discount';
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <Banner></Banner>
+            </div>
             <div>
                 <Brands></Brands>
             </div>
