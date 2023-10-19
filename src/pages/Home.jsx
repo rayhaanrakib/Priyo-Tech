@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from './../components/Header/Banner';
 import Brands from './../components/Main/Brands';
 import Products from './../components/Main/Products';
-import About from './../components/Main/About';
+import Blog from './../components/Main/Blog';
 import Newsletter from './../components/Main/Newsletter';
 import Discount from './../components/Main/Discount';
 import ScrollToTop from 'react-scroll-to-top';
@@ -27,7 +27,7 @@ const Home = () => {
                 <Products></Products>
             </div>
             <div data-aos="fade-up" data-aos-duration="2000">
-                <About></About>
+                <Blog></Blog>
             </div>
             <div data-aos="fade-up" data-aos-duration="2000">
                 <Newsletter></Newsletter>
