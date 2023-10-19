@@ -1,9 +1,30 @@
 import React from 'react';
+import Banner from './../components/Header/Banner';
+import Brands from './../components/Main/Brands';
+import Products from './../components/Main/Products';
+import About from './../components/Main/About';
+import Newsletter from './../components/Main/Newsletter';
+import Discount from './../components/Main/Discount';
 
 const Home = () => {
     return (
         <div>
-            <h1>home</h1>
+            <Banner></Banner>
+            <div>
+                <Brands></Brands>
+            </div>
+            <div>
+                <Discount></Discount>
+            </div>
+            <div>
+                <Products></Products>
+            </div>
+            <div>
+                <About></About>
+            </div>
+            <div>
+                <Newsletter></Newsletter>
+            </div>
         </div>
     );
 };
