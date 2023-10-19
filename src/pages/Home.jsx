@@ -5,26 +5,28 @@ import Products from './../components/Main/Products';
 import About from './../components/Main/About';
 import Newsletter from './../components/Main/Newsletter';
 import Discount from './../components/Main/Discount';
+import ScrollToTop from 'react-scroll-to-top';
 
 const Home = () => {
     return (
         <div>
-            <div data-aos="fade-up" data-aos-duration="2000">
+            <div data-aos="fade-up" data-aos-duration="1000">
                 <Banner></Banner>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-duration="2000">
                 <Brands></Brands>
             </div>
-            <div>
+            <ScrollToTop className='flex justify-center items-center' smooth />
+            <div data-aos="fade-up" data-aos-duration="2000">
                 <Discount></Discount>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-duration="2000">
                 <Products></Products>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-duration="2000">
                 <About></About>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-duration="2000">
                 <Newsletter></Newsletter>
             </div>
         </div>

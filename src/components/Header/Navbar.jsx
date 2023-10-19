@@ -94,7 +94,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="navbar-center">
-                        <a href='/' className=" normal-case text-xl"><img src="https://i.ibb.co/tMFSdqn/logo.png" alt='Logo' /></a>
+                        <a href='/' className=" normal-case text-xl"><img src="https://i.ibb.co/tMFSdqn/logo.png" alt='Priyo Tech' /></a>
                     </div>
                     <div className="navbar-end">
                         <div className='hidden lg:flex lg:mr-2'>
