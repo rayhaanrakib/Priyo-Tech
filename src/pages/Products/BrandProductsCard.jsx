@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ShopCard = ({ product }) => {
-    const { _id, image, name, type, price, rating } = product || {};
+const BrandProductsCard = ({ products }) => {
+    const { _id, image, name, type, price, rating } = products || {};
+
     return (
         <Link to={`/product/${_id}`}>
             <div className='cursor-pointer'>
@@ -23,7 +24,7 @@ const ShopCard = ({ product }) => {
                         <p className="text-gray-700 font-semibold">${price}</p>
                         <p className='text-[#FFB832]'>({rating})</p>
                     </div>
-
+                    
 
                     <div className="mt-4">
                         <Link to={`/product/${_id}`}>
@@ -37,7 +38,8 @@ const ShopCard = ({ product }) => {
                 </div>
             </div>
         </Link>
+
     );
 };
 
-export default ShopCard;
+export default BrandProductsCard;

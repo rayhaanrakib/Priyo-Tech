@@ -19,8 +19,8 @@ const UpdateProduct = () => {
         const price = form.pPrice.value;
         const short_description = form.pShortDesc.value;
         const details = form.pDetails.value;
-        const product = { brand, batch, type, name, image, price, rating, short_description, details }
-        console.log(product);
+        const updatedProduct = { brand, batch, type, name, image, price, rating, short_description, details }
+        console.log(updatedProduct);
 
     }
 

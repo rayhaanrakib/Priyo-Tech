@@ -9,7 +9,8 @@ import Register from './../pages/Auth/Register';
 import AddProduct from './../pages/Products/AddProduct';
 import UpdateProduct from './../pages/Products/UpdateProduct';
 import Shop from '../pages/Shop/Shop';
-import BrandProducts from '../pages/Products/BrandProducts';
+import BrandProducts from './../pages/Products/BrandProducts';
+import ProductSpecs from './../pages/Products/ProductSpecs';
 
 
 
@@ -21,8 +22,7 @@ const Routes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/brands')
+                element: <Home></Home>
             },
             {
                 path: "/cart",
@@ -41,20 +41,25 @@ const Routes = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             },
             {
-                path: "/update_product",
+                path: "/update_product/:id",
                 element: <UpdateProduct></UpdateProduct>
             },
             {
                 path: "/shop",
                 element: <Shop></Shop>,
-                loader: () => fetch('http://localhost:5000/products')
+                loader: () => fetch('https://brand-shop-server-ruby.vercel.app/products')
             },
             {
-                path: "/products/:brand",
-                element: <BrandProducts></BrandProducts>
+                path: "/brands/:id",
+                element: <BrandProducts></BrandProducts>,
+                loader: ({ params }) => fetch(`https://brand-shop-server-ruby.vercel.app/brands/${params.id}`)
+            },
+            {
+                path: "/product/:id",
+                element: <ProductSpecs></ProductSpecs>
             }
         ]
-        
+
     },
 ]);
 
