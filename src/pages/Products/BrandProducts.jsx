@@ -34,13 +34,13 @@ const BrandProducts = () => {
                         <div className=''>
                             <AwesomeSlider bullets={false}>
                                 <div className='w-full h-full'>
-                                    <a href="#"><img className='w-full h-full' src="https://i.ibb.co/KVRVzY8/banner1.jpg" alt="" /></a>
+                                    <a><img className='w-full h-full' src="https://i.ibb.co/KVRVzY8/banner1.jpg" alt="" /></a>
                                 </div>
                                 <div className='w-full h-full'>
-                                    <a href="#"><img className='w-full h-full' src="https://i.ibb.co/18KXL9Z/banner2.jpg" alt="" /></a>
+                                    <a><img className='w-full h-full' src="https://i.ibb.co/18KXL9Z/banner2.jpg" alt="" /></a>
                                 </div>
                                 <div className='w-full h-full'>
-                                    <a href="#"><img className='w-full h-full' src="https://i.ibb.co/s1vf3Rn/banner3.jpg" alt="" /></a>
+                                    <a><img className='w-full h-full' src="https://i.ibb.co/s1vf3Rn/banner3.jpg" alt="" /></a>
                                 </div>
                             </AwesomeSlider>
                         </div>
