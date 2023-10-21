@@ -18,7 +18,7 @@ const AddProduct = () => {
         const details = form.pDetails.value;
         const newProduct = { brand, batch, type, name, image, price, rating, short_description, details };
         console.log(newProduct);
-        fetch('http://localhost:5000/products', {
+        fetch('https://tech-shop-server-ecru.vercel.app/products', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,7 +32,7 @@ const AddProduct = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'Your product has been added',
                         showConfirmButton: false,
                         timer: 1500
                     })

@@ -11,6 +11,7 @@ import UpdateProduct from './../pages/Products/UpdateProduct';
 import Shop from '../pages/Shop/Shop';
 import BrandProducts from './../pages/Products/BrandProducts';
 import ProductSpecs from './../pages/Products/ProductSpecs';
+import PrivateRoutes from './PrivateRoutes';
 
 
 
@@ -26,7 +27,8 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <Cart></Cart>
+                element: <PrivateRoutes><Cart></Cart></PrivateRoutes>,
+                loader: () => fetch('https://tech-shop-server-ecru.vercel.app/cart_products')
             },
             {
                 path: "/login",
@@ -38,25 +40,26 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/add_product",
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoutes><AddProduct></AddProduct></PrivateRoutes>
             },
             {
-                path: "/update_product/:id",
-                element: <UpdateProduct></UpdateProduct>
+                path: "/update/:id",
+                element: <PrivateRoutes><UpdateProduct></UpdateProduct></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://tech-shop-server-ecru.vercel.app/update/${params.id}`)
             },
             {
                 path: "/shop",
                 element: <Shop></Shop>,
-                loader: () => fetch('https://brand-shop-server-ruby.vercel.app/products')
+                loader: () => fetch('https://tech-shop-server-ecru.vercel.app/products')
             },
             {
                 path: "/brands/:id",
                 element: <BrandProducts></BrandProducts>,
-                loader: ({ params }) => fetch(`https://brand-shop-server-ruby.vercel.app/brands/${params.id}`)
+                loader: ({ params }) => fetch(`https://tech-shop-server-ecru.vercel.app/brands/${params.id}`)
             },
             {
                 path: "/product/:id",
-                element: <ProductSpecs></ProductSpecs>
+                element: <PrivateRoutes><ProductSpecs></ProductSpecs></PrivateRoutes>
             }
         ]
 

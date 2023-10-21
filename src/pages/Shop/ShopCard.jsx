@@ -9,7 +9,7 @@ const ShopCard = ({ product }) => {
                 <img
                     src={image}
                     alt=""
-                    className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72 rounded-md"
+                    className="h-64 w-96 object-cover transition duration-500 group-hover:scale-105 rounded-md"
                 />
 
                 <div className="relative border border-gray-100 bg-[#F9FAFB] p-6">
