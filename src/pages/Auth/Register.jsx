@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
-    const { createUser, googleSignIn } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile, googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const handleGoogle = e => {
@@ -22,16 +22,18 @@ const Register = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const displayName = form.displayName.value;
-        const photoURL = form.photoURL.value;
+        const name = form.displayName.value;
+        const photo = form.photoURL.value;
         if (!passwordRegex.test(password)) {
             toast.error("At least one uppercase,special character & Minimum length of 8 characters.");
         } else {
-            createUser(email, password, displayName, photoURL)
+            createUser(email, password)
                 .then(result => {
-                    console.log(result.user);
-                    toast.success("Successfully Registered")
-                    navigate(location?.state ? location.state : '/shop')
+                    handleUpdateProfile(name, photo)
+                        .then(() => {
+                            toast.success("Successfully Registered")
+                            navigate(location?.state ? location.state : '/shop')
+                    })
                 })
         }
     }
@@ -51,6 +53,7 @@ const Register = () => {
                                 <h1 className='text-center font-bold'>Account Creation</h1>
                                 <div className='flex justify-center'>
                                     <input
+                                        required
                                         className="w-full lg:w-1/2 rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Email Address"
                                         type="email"
@@ -75,6 +78,7 @@ const Register = () => {
                                 </div>
                                 <div className='flex justify-center'>
                                     <input
+                                        required
                                         className="w-full lg:w-1/2 rounded-lg border-gray-200 p-3 text-sm border outline-none"
                                         placeholder="Password"
                                         type="password"

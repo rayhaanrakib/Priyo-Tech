@@ -1,4 +1,3 @@
-import React from 'react';
 import Banner from './../components/Header/Banner';
 import Brands from './../components/Main/Brands';
 import Blog from './../components/Main/Blog';
@@ -27,6 +26,7 @@ const Home = () => {
             <div data-aos="fade-up" data-aos-duration="2000">
                 <Newsletter></Newsletter>
             </div>
+            
         </div>
     );
 };

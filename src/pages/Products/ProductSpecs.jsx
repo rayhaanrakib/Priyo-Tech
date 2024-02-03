@@ -7,7 +7,8 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const ProductSpecs = () => {
     const { user } = useContext(AuthContext);
-    const userId = user.metadata.createdAt;
+    const userId = user?.metadata?.createdAt;
+    const email = user?.email;
     const [data, setData] = useState([]);
     useEffect(() => {
         fetch('https://tech-shop-server-ecru.vercel.app/products')
@@ -22,7 +23,6 @@ const ProductSpecs = () => {
     const sold = parseFloat(rating) * 10;
 
     const handleDeleteProduct = id => {
-        console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -33,7 +33,7 @@ const ProductSpecs = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://tech-shop-server-ecru.vercel.app/product/${_id}`, {
+                fetch(`https://tech-shop-server-ecru.vercel.app/product/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -53,9 +53,9 @@ const ProductSpecs = () => {
 
 
 
-    const handleAddToCart = ({ userId, brand, batch, type, name, image, price, rating, short_description, details }) => {
-        const cartProduct = { brand, batch, type, name, image, price, rating, short_description, details, userId };
-        fetch('https://tech-shop-server-ecru.vercel.app/cart_products', {
+    const handleAddToCart = ({ userId, email, brand, batch, type, name, image, price, rating, short_description, details }) => {
+        const cartProduct = { brand, batch, type, name, image, price, rating, short_description, details, userId, email };
+        fetch(`https://tech-shop-server-ecru.vercel.app/cart_products`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -64,14 +64,12 @@ const ProductSpecs = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: 'Successfully Added',
-                        showConfirmButton: false,
-                        timer: 1500
+                        showConfirmButton: false
                     })
                 }
             })
@@ -109,9 +107,9 @@ const ProductSpecs = () => {
                 </a>
                 <div className='w-full lg:w-1/2'>
                     <Link to={`/brands/${batch}`}>
-                        <h3 className='bg-[#0078FF] p-1 uppercase text-white text-sm font-semibold w-fit rounded'>{brand}</h3>
+                        <h3 className='bg-[#0078FF] px-2 py-1 uppercase text-white text-sm font-semibold w-fit rounded'>{brand}</h3>
                     </Link>
-                    <h4 className='my-2 bg-[#002B44] p-1 w-fit rounded uppercase text-[#F9FAFB] text-xs'>{type}</h4>
+                    <h4 className='my-2 bg-[#002B44] px-2 py-1 w-fit rounded uppercase text-[#F9FAFB] text-xs'>{type}</h4>
                     <h1 className='my-2 capitalize text-[#002B44] text-2xl md:text-3xl lg:text-4xl font-semibold'>{name}</h1>
                     <h4 className='mb-2 capitalize text-[#002B44] text-xs font-light w-[90%]'>{short_description}</h4>
                     <p className="my-4 capitalize text-[#002B44] text-xl font-semibold">Price : ${price}</p>
@@ -120,7 +118,7 @@ const ProductSpecs = () => {
                     <p className="my-4 capitalize text-[#002B44] font-semibold">sold : {sold} item</p>
                     <p className=' capitalize text-[#002B44] text-sm font-normal w-[90%]'>{details}</p>
                     <button
-                        onClick={() => handleAddToCart({ userId, brand, batch, type, name, image, price, rating, short_description, details })}
+                        onClick={() => handleAddToCart({ userId, email, brand, batch, type, name, image, price, rating, short_description, details })}
                         className='bg-[#002B44] text-white px-4 py-3 rounded-md mt-6'>
                         Add To Cart
                     </button>

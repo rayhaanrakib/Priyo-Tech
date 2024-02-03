@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -8,12 +9,12 @@ const Navbar = () => {
         logOut().then((result) => {
             toast.success('Sign Out Successfully.', {
                 style: {
-                    border: '1px solid #713200',
+                    border: '1px solid #FF6C22',
                     padding: '16px',
-                    color: '#713200',
+                    color: '#FF6C22',
                 },
                 iconTheme: {
-                    primary: '#713200',
+                    primary: '#FF6C22',
                     secondary: '#FFFAEE',
                 },
             });
@@ -75,9 +76,9 @@ const Navbar = () => {
         <div>
             <div className='bg-[#002b44] hidden md:block text-white'>
                 <div className='container mx-auto flex justify-items-center items-center py-1 px-4 lg:px-0'>
-                    <h2 className='w-full text-start text-xs md:text-sm lg:text-base'>Need help? <br className='md:hidden' /> Call us: 1-800-123-4567</h2>
-                    <h2 className='w-full text-center text-xs md:text-sm lg:text-base'>Summer sale discount off 50% off! Shop Now</h2>
-                    <h2 className='w-full text-end text-xs md:text-sm lg:text-base'> </h2>
+                    <h2 className='w-full text-start text-xs md:text-sm '>Need help? <br className='md:hidden' /> Call us: 1-800-123-4567</h2>
+                    <h2 className='w-full text-center text-xs md:text-sm '>Summer sale discount off 50% off! Shop Now</h2>
+                    <h2 className='w-full text-end text-xs md:text-sm'> </h2>
                 </div>
             </div>
             <div className='container mx-auto pt-4'>
@@ -95,6 +96,7 @@ const Navbar = () => {
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 font-semibold shadow bg-base-100 rounded-box w-52">
                                 {navlinks}
                                 {usernav}
+                                <li><a className='font-bold' href="/login">Sign In</a></li>
                             </ul>
                         </div>
                     </div>
@@ -107,7 +109,7 @@ const Navbar = () => {
                                 <ul className="flex gap-4 text-base font-semibold px-1">
                                     {usernav}
                                 </ul>
-                            </div>) : (<a className='text-base font-semibold mr-3' href="/login">Sign In</a> )
+                            </div>) : (<a className='text-base font-semibold mr-3 hidden md:block' href="/login">Sign In</a> )
                         }
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

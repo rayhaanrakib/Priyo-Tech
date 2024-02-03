@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 
+
 const BrandProducts = () => {
     const [brand, setBrand] = useState([]);
     const [noProducts, setNoProducts] = useState(false)
@@ -32,9 +33,9 @@ const BrandProducts = () => {
                 noProducts ? (<div className='h-[90vh] flex items-center justify-center p-10'><h1 className='w-1/2 text-3xl text-black text-center font-semibold'>No Products Available</h1></div>) :
                     (<div className='mt-2 mb-8 container mx-auto'>
                         <div className=''>
-                            <AwesomeSlider bullets={false}>
+                            <AwesomeSlider organicArrows={false} >
                                 <div className='w-full h-full'>
-                                    <a><img className='w-full h-full' src="https://i.ibb.co/KVRVzY8/banner1.jpg" alt="" /></a>
+                                    <a><h1>hi text</h1></a>
                                 </div>
                                 <div className='w-full h-full'>
                                     <a><img className='w-full h-full' src="https://i.ibb.co/18KXL9Z/banner2.jpg" alt="" /></a>

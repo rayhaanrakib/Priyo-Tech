@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Footer = () => {
+    const year = new Date().getFullYear();
+
     return (
         <footer className="bg-[#F9FAFB]">
             <div
@@ -258,7 +260,7 @@ const Footer = () => {
                 </div>
 
                 <p className="text-xs text-center text-gray-500">
-                    &copy; 2023. <a rel="noreferrer" target="_blank" href="https://github.com/developedbyrayhan" className='text-[#0078FF]'>developedbyrayhan</a>. All rights reserved.
+                    &copy; {year}. <a rel="noreferrer" target="_blank" href="https://github.com/rayhanrakib28" className='text-[#0078FF]'>rayhanrakib28</a>. All rights reserved.
                 </p>
             </div>
         </footer>
